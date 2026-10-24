@@ -81,7 +81,7 @@ for a in $ADAPTERS; do
         mkdir -p adapters/sparrow/libs
         # drongo from source, with Sparrow's gradle wrapper (verification metadata dropped: we pin by commit)
         cp -r adapters/sparrow/gradle adapters/sparrow/gradlew upstream/drongo/
-        (cd upstream/drongo && ./gradlew jar -q --no-daemon && cp build/libs/drongo-*.jar "$ROOT/adapters/sparrow/libs/drongo.jar")
+        (cd upstream/drongo && ./gradlew jar -q --no-daemon && cp build/libs/drongo*.jar "$ROOT/adapters/sparrow/libs/drongo.jar")
         M=https://maven-central.storage-download.googleapis.com/maven2
         curl -sSf -o adapters/sparrow/libs/tern-1.0.6.jar $M/com/sparrowwallet/tern/1.0.6/tern-1.0.6.jar || \
             curl -sSf -o adapters/sparrow/libs/tern-1.0.6.jar https://repo.maven.apache.org/maven2/com/sparrowwallet/tern/1.0.6/tern-1.0.6.jar
