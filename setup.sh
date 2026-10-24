@@ -83,8 +83,9 @@ for a in $ADAPTERS; do
         cp -r adapters/sparrow/gradle adapters/sparrow/gradlew upstream/drongo/
         (cd upstream/drongo && ./gradlew jar -q --no-daemon && cp build/libs/drongo*.jar "$ROOT/adapters/sparrow/libs/drongo.jar")
         M=https://maven-central.storage-download.googleapis.com/maven2
-        curl -sSf -o adapters/sparrow/libs/tern-1.0.6.jar $M/com/sparrowwallet/tern/1.0.6/tern-1.0.6.jar || \
-            curl -sSf -o adapters/sparrow/libs/tern-1.0.6.jar https://repo.maven.apache.org/maven2/com/sparrowwallet/tern/1.0.6/tern-1.0.6.jar
+        # tern is only published on Sparrow's own Forgejo registry, not Maven Central
+        curl -sSf -o adapters/sparrow/libs/tern-1.0.6.jar https://code.sparrowwallet.com/api/packages/sparrowwallet/maven/com/sparrowwallet/tern/1.0.6/tern-1.0.6.jar
+        echo "2d0286415bc858be1ab3ba951f7c78190bec083939d8fdd7946007453a8480c9  adapters/sparrow/libs/tern-1.0.6.jar" | sha256sum -c -
         for m in base graphics; do
             curl -sSf -o adapters/sparrow/libs/javafx-$m-25-linux.jar $M/org/openjfx/javafx-$m/25/javafx-$m-25-linux.jar
         done
