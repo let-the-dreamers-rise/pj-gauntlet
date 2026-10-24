@@ -1,0 +1,33 @@
+name: matrix
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 4 * * 1"   # weekly, so upstream regressions show up without a push
+  workflow_dispatch:
+jobs:
+  sender:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { adapter: bluewallet, flags: "" }
+          - { adapter: joinmarket, flags: "" }
+          - { adapter: btcpay,     flags: "" }
+          - { adapter: sparrow,    flags: "--tls" }
+          - { adapter: pdk,        flags: "--tls" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: ./setup.sh ${{ matrix.adapter }}
+      - run: ./scripts/node.sh
+      - name: run all cases
+        run: python3 -m pjg.runner --adapter adapters/${{ matrix.adapter }}/run.sh ${{ matrix.flags }} --skip T01 --out results/${{ matrix.adapter }}.json --name ${{ matrix.adapter }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.adapter }}
+          path: results/${{ matrix.adapter }}.json

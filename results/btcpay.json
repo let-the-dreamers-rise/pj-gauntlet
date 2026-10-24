@@ -1,0 +1,979 @@
+{
+ "adapter": "btcpay",
+ "results": [
+  {
+   "case": "C01",
+   "title": "Honest payjoin: one receiver input, fee bump from the fee output",
+   "rule": "Protocol: the valid baseline every other case is a mutation of",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "d346b12c0e663081be1a129ab7fb733125d70aa9c04d53c0d4275e85711e37a8"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "d346b12c0e663081be1a129ab7fb733125d70aa9c04d53c0d4275e85711e37a8",
+   "original_txid": "79bbcbc3aeee7f7646531a193cf632f1d6f633c841c17252e4d88b5bb715418a",
+   "real_fee": 2774,
+   "claimed_fee": 2774,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "case_value": 0
+  },
+  {
+   "case": "C02",
+   "title": "Receiver input inserted at index 0",
+   "rule": "MUST NOT shuffle; additional inputs must be inserted at a random index",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "d2c23dd91bd89e594ba42f647d37f651afa9e6200b44470031e8e0f38bcd4b72"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "d2c23dd91bd89e594ba42f647d37f651afa9e6200b44470031e8e0f38bcd4b72",
+   "original_txid": "a4d0f4714361c6a46ea2085a28acb0c3a2bf6d2bcda4c22e18f101d3772eef7a",
+   "real_fee": 2774,
+   "claimed_fee": 2774,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "case_value": 0
+  },
+  {
+   "case": "C03",
+   "title": "Payment output substituted (no pjos=0)",
+   "rule": "MAY add or replace the outputs belonging to the receiver unless substitution is disabled",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "9c23fd58dc73f1da445d3c639169cb029a8aa37ade6594005da3c49726179bc6"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "9c23fd58dc73f1da445d3c639169cb029a8aa37ade6594005da3c49726179bc6",
+   "original_txid": "5459fbbc0c23bab33647ae68e25f1e086ed9be303f063078edc78974ae8e2825",
+   "real_fee": 2774,
+   "claimed_fee": 2774,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "case_value": 0
+  },
+  {
+   "case": "C04",
+   "title": "Receiver adds no input, only swaps its payment script",
+   "rule": "Note: the sender should allow the receiver to not add any inputs",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "b285f522d32ba14888aa33e292f8f8b69a3763287772700d13c19baa339b687b"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "b285f522d32ba14888aa33e292f8f8b69a3763287772700d13c19baa339b687b",
+   "original_txid": "8f44635a61a0dfbe0af94da171e9e3c650e1d2eea3c1a03c49444bb555c2f739",
+   "real_fee": 2090,
+   "claimed_fee": 2090,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 0,
+   "case_value": 0
+  },
+  {
+   "case": "C05",
+   "title": "Receiver batches an extra output paid from its own input",
+   "rule": "Note: the method of checking the fee allows the receiver to batch payments",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "6f8d4b49dfdfba74a8af8b4f1387397a037ad99926598876d42340128dc96189"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "6f8d4b49dfdfba74a8af8b4f1387397a037ad99926598876d42340128dc96189",
+   "original_txid": "ab508c89d5c0635f60ca41d273a76a260c4ef827916b3f43bc884a05b6830f4c",
+   "real_fee": 3086,
+   "claimed_fee": 3086,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "case_value": 0
+  },
+  {
+   "case": "C06",
+   "title": "Receiver input is taproot while sender is p2wpkh (mixed types)",
+   "rule": "Mixed input types SHOULD NOT be used only until September 2024",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "fc481d07ce05a43d1b8f6964b29e1f9dfe791798ecf5b9c661f23a31357e6653"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "fc481d07ce05a43d1b8f6964b29e1f9dfe791798ecf5b9c661f23a31357e6653",
+   "original_txid": "d482cf916d7269532e07bbf6a1b8b8082b63e37d03c9785cad989bdf0b7fa320",
+   "real_fee": 2668,
+   "claimed_fee": 2668,
+   "original_fee": 2090,
+   "real_feerate": 10.03,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 577,
+   "case_value": 0
+  },
+  {
+   "case": "C07",
+   "title": "Receiver takes exactly the advertised maxadditionalfeecontribution for one input",
+   "rule": "Fee output: contribution <= maxadditionalfeecontribution and <= originalFeeRate * vsize * added inputs",
+   "expect": "info",
+   "verdict": "INFO",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "898a9d4ea75d86f5b31a4333c903873a2c635459ece7a588c0d8dd1a587c9085"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [
+    "contribution 1100; originalFeeRate*68 = 683.27"
+   ],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "898a9d4ea75d86f5b31a4333c903873a2c635459ece7a588c0d8dd1a587c9085",
+   "original_txid": "9b5268ad80b4aecf3c7226779260a5704e97106bf14c3d7f19d50634269c1ec1",
+   "real_fee": 3190,
+   "claimed_fee": 3190,
+   "original_fee": 2090,
+   "real_feerate": 11.56,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 1100,
+   "case_value": 0
+  },
+  {
+   "case": "A01",
+   "title": "Absolute fee decreased (receiver pockets 500 sat of the sender's fee)",
+   "rule": "Verify that the absolute fee of the payjoin proposal is equal or higher than the original",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver decreased absolute fee",
+    "txid": "cefecc32396c0c9fa691da53e478d0811a67ca2bd8c34d94452bdb9c8e77ffc1"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.7,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "4b51ab0055017b10e4c97cab592275c61fa4eeb0d61dfe7ed285e0a89060a7ef",
+   "original_txid": "cefecc32396c0c9fa691da53e478d0811a67ca2bd8c34d94452bdb9c8e77ffc1"
+  },
+  {
+   "case": "A02",
+   "title": "Transaction version changed",
+   "rule": "Verify that the transaction version is unchanged",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The proposal PSBT changed the transaction version",
+    "txid": "e066ccf9ff218032cc3ceadd9a6ea5cb5fdb9aa30d6f9e4a61fd2ba7f212aaa2"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "ac97c6ff44b25542ff2a44df2e6a3be2f3144dbe687b49f184f3239781c1ff72",
+   "original_txid": "e066ccf9ff218032cc3ceadd9a6ea5cb5fdb9aa30d6f9e4a61fd2ba7f212aaa2"
+  },
+  {
+   "case": "A03",
+   "title": "nLockTime changed",
+   "rule": "Verify that the nLockTime is unchanged",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The proposal PSBT changed the nLocktime",
+    "txid": "123deffabcb357e91fd65a374b090989c508f784f798c58a040d259c6dfb427c"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "d0063a71bd53ac9d03a3c61a2a82735be17dffbdfa786f4b284effd138b2705d",
+   "original_txid": "123deffabcb357e91fd65a374b090989c508f784f798c58a040d259c6dfb427c"
+  },
+  {
+   "case": "A04",
+   "title": "Sequence of every input changed (still uniform)",
+   "rule": "Check that the sender's inputs' sequence numbers are unchanged",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The proposedTxIn modified the sequence of one of our inputs",
+    "txid": "34dc32586d6b1935a3f4842a5cf6240fa25d498e69db2164ef1597b053c36cb2"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "a371756d655908b120d463b9ba2c4f93e2060811db66abe8d7abfd95bbff7499",
+   "original_txid": "34dc32586d6b1935a3f4842a5cf6240fa25d498e69db2164ef1597b053c36cb2"
+  },
+  {
+   "case": "A05",
+   "title": "Receiver input uses a different sequence (mixed sequences)",
+   "rule": "Verify that the payjoin proposal inputs all specify the same sequence value",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: Mixed sequence detected in the proposal",
+    "txid": "0a6747b1417c9fa087d9354f8233487e267ceebcd9b2737102d87af2237d7c71"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "ffeec0b2bbd5ee7cad65bf9a8929fc1a88db72b224b681510b21e4d056d891a5",
+   "original_txid": "0a6747b1417c9fa087d9354f8233487e267ceebcd9b2737102d87af2237d7c71"
+  },
+  {
+   "case": "A06",
+   "title": "One of the sender's inputs dropped",
+   "rule": "Verify that all of sender's inputs from the original PSBT are in the proposal",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: Some of our inputs are not included in the proposal",
+    "txid": "e57b7e097ac0a1b2299fe33a0e14e170f0ba628284910bd2b2249b5b7a333368"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "71456d2cad08ce80440a031fc2636641ecd193e1488cfaf35b4f7c3c857ed2a6",
+   "original_txid": "e57b7e097ac0a1b2299fe33a0e14e170f0ba628284910bd2b2249b5b7a333368"
+  },
+  {
+   "case": "A07",
+   "title": "Sender inputs swapped (proposal shuffles the sender's inputs)",
+   "rule": "The proposal MUST NOT shuffle the order of inputs or outputs",
+   "expect": "info",
+   "verdict": "INFO",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver did not finalized one of their input",
+    "txid": "91148b7d10c1cc97c648c39fc131dadce78ec9ead4c995290926be653e6b94ba"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "42ac4d2e427835747e881ec9e2abb74e4368916427e188c2b401e3c3e89202b4",
+   "original_txid": "91148b7d10c1cc97c648c39fc131dadce78ec9ead4c995290926be653e6b94ba"
+  },
+  {
+   "case": "A08",
+   "title": "Sender's outputs swapped (proposal shuffles outputs)",
+   "rule": "The proposal MUST NOT shuffle the order of inputs or outputs",
+   "expect": "info",
+   "verdict": "INFO",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "fb9e89a12134b26f1428ed8e0c9bdca9c8f5fbed1d9b75759c1d36cb474e8a11"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "fb9e89a12134b26f1428ed8e0c9bdca9c8f5fbed1d9b75759c1d36cb474e8a11",
+   "original_txid": "c115ecd9f8663895d45107cd505b55ca3aa740bb8da34abeb11a1e81d33e4e77",
+   "real_fee": 2774,
+   "claimed_fee": 2774,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "case_value": 0
+  },
+  {
+   "case": "A10",
+   "title": "Receiver finalized one of the sender's inputs",
+   "rule": "If it is one of the sender's inputs: verify the PSBT input is not finalized",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The proposal PSBT is not sane (Input 0: final witness script present but not witness_utxo or non_witness_utxo)",
+    "txid": "8cedf0f730797e8f8b5df99580ccf65f56741522d4f92b84d78e7e6ea4a5fd20"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "57b583d7e9336136bbca7006eb6c813def4df022e0a2cd43833787578e7194e6",
+   "original_txid": "8cedf0f730797e8f8b5df99580ccf65f56741522d4f92b84d78e7e6ea4a5fd20"
+  },
+  {
+   "case": "A11",
+   "title": "Partial signature added to a sender input",
+   "rule": "Verify that no partial signature has been filled",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "FormatException: Invalid DER signature",
+    "txid": "edb3cd5664db7cdd84a62b50b9be895ac39823e5ddb9fb8036f9c7b18efa9d22"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "e49d3860323c5fdab00cda15a73662752776c245bbc2aaab949406509b01605c",
+   "original_txid": "edb3cd5664db7cdd84a62b50b9be895ac39823e5ddb9fb8036f9c7b18efa9d22"
+  },
+  {
+   "case": "A12",
+   "title": "BIP32 keypath added to an input",
+   "rule": "Verify that no keypaths are in the PSBT input",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver added keypaths to an input",
+    "txid": "0b65640feb41d8e084d165fad806fb44371788f1ca4205d3f1dd9247883a7847"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "8d0f3aa3c6b3b8464677ef32cf011c825dfacaa4a17e42706c6f349a7dd07474",
+   "original_txid": "0b65640feb41d8e084d165fad806fb44371788f1ca4205d3f1dd9247883a7847"
+  },
+  {
+   "case": "A13",
+   "title": "BIP32 keypath added to an output",
+   "rule": "Verify that no keypaths are in the PSBT output",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver added keypaths to an output",
+    "txid": "e6365aa7b3e0c740b87227a186eb9cc63a93bd3ae0254fd46f641b0aa09d88b4"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "0aad8a86734c32f33709d5a2d1dbd3ce7093a8eb8d63b8c86b88d58e10889a88",
+   "original_txid": "e6365aa7b3e0c740b87227a186eb9cc63a93bd3ae0254fd46f641b0aa09d88b4"
+  },
+  {
+   "case": "A14",
+   "title": "Global xpub included",
+   "rule": "GlobalXPubs must not be included (reference implementation)",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: GlobalXPubs should not be included in the receiver's PSBT",
+    "txid": "87ae758faebf6019d0840f9fc9a085afeb79af2568e469befb252db0d0e67ded"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "be9eccc8ff12ecea458575e69c7c0cdfe4ed7b2bd4bb99eef9bc03713eaf628d",
+   "original_txid": "87ae758faebf6019d0840f9fc9a085afeb79af2568e469befb252db0d0e67ded"
+  },
+  {
+   "case": "A15",
+   "title": "Receiver input left unfinalized",
+   "rule": "If it is one of the receiver's inputs: verify the PSBT input is finalized",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver did not finalized one of their input",
+    "txid": "8cdbec412687b309c8f4f5c25e952cb1bec7d0135e7e911585e062a1ecd93595"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "442b20c0e36411bac8a7b96db630b2425248c56b9fc0a9819c41f0313e978532",
+   "original_txid": "8cdbec412687b309c8f4f5c25e952cb1bec7d0135e7e911585e062a1ecd93595"
+  },
+  {
+   "case": "A16",
+   "title": "Receiver input without witness_utxo/non_witness_utxo",
+   "rule": "If it is one of the receiver's inputs: verify that non_witness_utxo or witness_utxo are filled in",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The proposal PSBT is not sane (Input 2: final witness script present but not witness_utxo or non_witness_utxo)",
+    "txid": "3e1aace67e5e972b68e0704425f46e9a474c5b6de93757d3d3c11a1aec272c0f"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "ae7f6d132ad0ab1ba63486b888a806fddfcd00585e5e39303fe24da6c06b6b41",
+   "original_txid": "3e1aace67e5e972b68e0704425f46e9a474c5b6de93757d3d3c11a1aec272c0f"
+  },
+  {
+   "case": "A20",
+   "title": "Fee output reduced by more than maxadditionalfeecontribution",
+   "rule": "Fee output: subtracted amount <= maxadditionalfeecontribution",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The actual contribution is more than maxadditionalfeecontribution",
+    "txid": "cef386fbf81f427b12ab1e7b3c37b5488bedff7d21b988211919bb5b3fffa1e1"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "32ffdceac879acf86dfcb6ada4393b19442d51a0e43f117263e37acd61509255",
+   "original_txid": "cef386fbf81f427b12ab1e7b3c37b5488bedff7d21b988211919bb5b3fffa1e1"
+  },
+  {
+   "case": "A21",
+   "title": "Fee output contribution redirected to the receiver instead of fees",
+   "rule": "Fee output: actual contribution <= difference of absolute fee",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The actual contribution is not only paying fee",
+    "txid": "7f4aa7dec3631641a6df280756825828b449a02e78480c981b190597e51b3ead"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "8f03f754ffa78dc36d79028b543d01235568f60c70c9e1fca80afe786a8a73ee",
+   "original_txid": "7f4aa7dec3631641a6df280756825828b449a02e78480c981b190597e51b3ead"
+  },
+  {
+   "case": "A22",
+   "title": "Fee output reduced although the receiver added no input",
+   "rule": "Fee output: contribution only pays for fees incurred by additional inputs",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The actual contribution is not only paying for additional inputs",
+    "txid": "aa2d85be7ec8f55c45b2783195627da7621b15e1c3f73ce5ba4e8be281d7cb80"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "86151e2212868e06ca26e3d044656a0f198c17a43a87ce854ea9d8cc28025669",
+   "original_txid": "aa2d85be7ec8f55c45b2783195627da7621b15e1c3f73ce5ba4e8be281d7cb80"
+  },
+  {
+   "case": "A23",
+   "title": "Fee output pays for more than the receiver's inputs justify",
+   "rule": "Fee output: contribution <= originalFeeRate * vsize(sender_input_type) * added inputs",
+   "expect": "reject",
+   "verdict": "FAIL",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "2e9d6b4bce9516f770593a3a30e5384356224cda1bbfdf8ce3fc412cdc1a297d"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "2e9d6b4bce9516f770593a3a30e5384356224cda1bbfdf8ce3fc412cdc1a297d",
+   "original_txid": "8d08e419edc7613bf0be2be3b8e31b4cb336c99bb06b4bac5f61ad42297998ac",
+   "real_fee": 3191,
+   "claimed_fee": 3191,
+   "original_fee": 2090,
+   "real_feerate": 11.56,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 1100,
+   "stderr_tail": "",
+   "case_value": 0
+  },
+  {
+   "case": "A24",
+   "title": "Sender's change output removed",
+   "rule": "Verify that all sender's outputs (except the payment) are in the proposal",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: Some of our outputs are not included in the proposal",
+    "txid": "08d2f1156349ea8497818bd47f15e0a5df3fd8dfeb404fcf7fd2fa9e1e45a670"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "e9996889c3f409b18b0eddbbe5ecc359b571813143f94c41f7bcc45ea2babe64",
+   "original_txid": "08d2f1156349ea8497818bd47f15e0a5df3fd8dfeb404fcf7fd2fa9e1e45a670"
+  },
+  {
+   "case": "A25",
+   "title": "Sender's change redirected to a receiver script (same value)",
+   "rule": "Verify that all sender's outputs (except the payment) are in the proposal",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: Some of our outputs are not included in the proposal",
+    "txid": "d5af4490383e05f1e6eb9e4b0d2da03954cf73e7a37f12e1fce3464c0f7201ef"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "9c05c46cba1148696a72ca632c50bab89de2f286c6bd00660eba7658a6faf1fc",
+   "original_txid": "d5af4490383e05f1e6eb9e4b0d2da03954cf73e7a37f12e1fce3464c0f7201ef"
+  },
+  {
+   "case": "A26",
+   "title": "Sender's change decreased with no fee output allowed",
+   "rule": "Else: make sure the output's value did not decrease",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The actual contribution is more than maxadditionalfeecontribution",
+    "txid": "cc0243463eb17582df5d928d922ab33564bf6cdea3ae2e30e46b1631cee16f50"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [
+    "change is the fee output, so this overlaps A21"
+   ],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "4948db77a4c0f857afe204e27f73a098544d54af7cf487a33322c3751f8e4d63",
+   "original_txid": "cc0243463eb17582df5d928d922ab33564bf6cdea3ae2e30e46b1631cee16f50"
+  },
+  {
+   "case": "A30",
+   "title": "pjos=0 but payment output substituted",
+   "rule": "If the receiver's BIP21 signalled pjos=0, disable payment output substitution",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: Some of our outputs are not included in the proposal",
+    "txid": "ce7750cf311a9b5942bdd7bc4f0b9917e06b1dd7ab01e98454b6afca11b50107"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "a1341c9490edd13247e8d94f1fc26df610da4ffb457d03df30f14b64818f0ce2",
+   "original_txid": "ce7750cf311a9b5942bdd7bc4f0b9917e06b1dd7ab01e98454b6afca11b50107"
+  },
+  {
+   "case": "A31",
+   "title": "pjos=0 but payment output value decreased",
+   "rule": "Payment output substitution disabled: the receiver's outputs must not be decreased",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver decreased the value of one of the outputs",
+    "txid": "02a078434a450188486e309b4f4948269807ce51af504f6d722c684aebbceae9"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "2aebee2ccb3a211df83a57129ce08ec386744750bfc95484819813c66078a7f5",
+   "original_txid": "02a078434a450188486e309b4f4948269807ce51af504f6d722c684aebbceae9"
+  },
+  {
+   "case": "A32",
+   "title": "Fee rate below the sender's minfeerate",
+   "rule": "If minfeerate was specified, check the fee rate of the payjoin transaction is not less",
+   "expect": "accept",
+   "verdict": "PASS",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "d89e01577280c89d8970c09937013815980f82ea11904c23d3287084029062c6"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [
+    "sender minfeerate=1.0, proposal rate 7.57: no violation, accept is correct"
+   ],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "d89e01577280c89d8970c09937013815980f82ea11904c23d3287084029062c6",
+   "original_txid": "cc3766a4f7e9678dd117f8fd22734d46e56b881e6f6b20a686f3cf3200fb9c43",
+   "real_fee": 2090,
+   "claimed_fee": 2090,
+   "original_fee": 2090,
+   "real_feerate": 7.57,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 0,
+   "case_value": 0
+  },
+  {
+   "case": "A42",
+   "title": "Receiver adds another of the sender's own UTXOs, unfinalized",
+   "rule": "The sender must be careful to only sign the inputs that were present in the original PSBT",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinSenderException: The receiver did not finalized one of their input",
+    "txid": "0286425a5738218ca7202f5a184c8c2e1db984b03ec1afb55aff1547996527ff"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "e6a0915b09f668a8cd8cbe2687c53c99fdea1e09897824880140e6f5d7d820f4",
+   "original_txid": "0286425a5738218ca7202f5a184c8c2e1db984b03ec1afb55aff1547996527ff"
+  },
+  {
+   "case": "T02",
+   "title": "Receiver answers 200 with garbage",
+   "rule": "Sender must fall back to the original",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "FormatException: Invalid PSBT magic bytes",
+    "txid": "6fb9ba5399b1c01d3863a69fc19223e2ec060868d6b8124c8a90601e93685c5c"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.9,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "0",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": null,
+   "original_txid": "6fb9ba5399b1c01d3863a69fc19223e2ec060868d6b8124c8a90601e93685c5c"
+  },
+  {
+   "case": "T03",
+   "title": "Receiver error with unknown code and a phishing message",
+   "rule": "Unknown error codes/messages must not reach the UI (only the fallback happens)",
+   "expect": "reject",
+   "verdict": "PASS",
+   "payjoin_broadcast": false,
+   "original_broadcast": true,
+   "adapter": {
+    "result": "fallback",
+    "error": "PayjoinReceiverException: send-to-bc1qattacker: Unknown error from the receiver. (Receiver message: Payjoin failed. Resend the payment to bc1qattacker to complete it.)",
+    "txid": "e1a2656926ac0b2dd827926a9de6bd91c6ffb016f5e7d7a9fac0354c053c37df"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 0.8,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": null,
+   "original_txid": "e1a2656926ac0b2dd827926a9de6bd91c6ffb016f5e7d7a9fac0354c053c37df"
+  },
+  {
+   "case": "T04",
+   "title": "pj endpoint is plain http on a non-local host",
+   "rule": "Senders SHOULD NOT accept a URL representing an unencrypted or unauthenticated connection",
+   "expect": "reject",
+   "verdict": "FAIL",
+   "payjoin_broadcast": true,
+   "original_broadcast": false,
+   "adapter": {
+    "result": "payjoin",
+    "txid": "35d6984245d083a6e1233aa793da99e0d21332eb1229bff30c0a2a10acf1166b"
+   },
+   "adapter_exit": 0,
+   "elapsed_s": 1.0,
+   "notes": [],
+   "params": {
+    "v": "1",
+    "additionalfeeoutputindex": "1",
+    "maxadditionalfeecontribution": "1100",
+    "minfeerate": "1"
+   },
+   "proposal_txid": "35d6984245d083a6e1233aa793da99e0d21332eb1229bff30c0a2a10acf1166b",
+   "original_txid": "c461c2b015f94d71391386603666c088ef14581155f7fbdbbd9b0d3a3012f0f9",
+   "real_fee": 2774,
+   "claimed_fee": 2774,
+   "original_fee": 2090,
+   "real_feerate": 10.05,
+   "original_feerate": 10.05,
+   "sender_extra_cost": 683,
+   "stderr_tail": "",
+   "case_value": 0
+  }
+ ]
+}

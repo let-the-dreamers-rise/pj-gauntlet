@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- the exact package BTCPay Server ships (BTCPayServer.csproj: BIP78.Sender 0.2.5) -->
+    <PackageReference Include="BIP78.Sender" Version="0.2.5" />
+    <PackageReference Include="NBitcoin" Version="9.0.0" />
+  </ItemGroup>
+</Project>

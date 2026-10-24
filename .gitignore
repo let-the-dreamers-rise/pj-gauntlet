@@ -1,0 +1,19 @@
+node_modules/
+bin/
+obj/
+out/
+build/
+.gradle/
+libs/
+upstream/
+__pycache__/
+adapters/joinmarket/joinmarket-clientserver
+adapters/pdk/payjoin-cli
+# coordinated disclosure in progress: never push these
+private/
+pjg/cases_embargoed.py
+results/*embargo*
+tls/ca.key
+tls/ca.srl
+tls/server.csr
+RESULTS.full.md
